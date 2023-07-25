@@ -1,147 +1,226 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Minha página de quadrinhos</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-      /* Definindo a altura da página e o overflow para rolagem vertical */
-      body {
-        height: 1000px;
-        overflow-y: scroll;
-      }
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LO$ DOLLAR$</title>
+  <style>
+    /* Estilos do site */
 
-      
-      /* Estilizando os quadros */
-      .quadro {
-        width: 90%;
-        height: 90vh;
-        background-color: #fff;
-        margin: 50px auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #000;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
 
-      /* Estilizando as imagens dos quadros */
-      .quadro img {
+    nav {
+      background: linear-gradient(to bottom, #FF8C00, #000);
+      padding: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    nav img {
+      max-width: 200px;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar-end {
+      background: linear-gradient(to bottom, #000, #000);
+      height: 10px;
+    }
+
+    .botao-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+    }
+
+    button {
+      padding: 20px 40px 20px 60px;
+      font-size: 24px;
+      margin: 10px;
+      background-color: #FF8C00;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(255, 140, 0, 0.5);
+      width: 100%;
+      max-width: 300px;
+      margin-bottom: 20px;
+      background-image: url("content://com.android.providers.media.documents/document/image%3A1000148150");
+      background-repeat: no-repeat;
+      background-position: 20px center;
+      background-size: 20px 20px;
+    }
+
+    button:hover {
+      background-color: #FFA500;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 8px 24px rgba(255, 165, 0, 0.7);
+    }
+
+    .price-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .price-box {
+      width: 300px;
+      padding: 20px;
+      background-color: #333;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      margin: 20px;
+      text-align: left;
+    }
+
+    .price-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .price-description {
+      margin-bottom: 10px;
+    }
+
+    .price-value {
+      font-size: 28px;
+      font-weight: bold;
+      color: #FF8C00;
+      margin-bottom: 20px;
+    }
+
+    input[type="submit"] {
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #FF8C00;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    input[type="submit"]:hover {
+      background-color: #FFA500;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Estilos Responsivos */
+    @media screen and (max-width: 768px) {
+      .form-container {
         max-width: 90%;
-        max-height: 90%;
-        object-fit: contain;
+      }
+      
+      nav img {
+        max-width: 150px;
       }
 
-      /* Estilos para dispositivos com largura de tela de até 768px */
-      @media screen and (max-width: 768px) {
-        .quadro {
-          height: auto;
-          margin: 25px auto;
-        }
-        .quadro img {
-          max-width: 100%;
-          max-height: none;
-          height: auto;
-        }
+      .botao-container {
+        margin-top: 30px;
       }
-      footer {
-  background-color: #f2f2f2;
-  padding: 20px 0;
-  text-align: center;
-}
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
+      .price-container {
+        flex-wrap: wrap;
+        margin-top: 30px;
+      }
 
-a {
-  color: #333;
-  text-decoration: none;
-}
+      .price-box {
+        width: 250px;
+      }
 
-a:hover {
-  text-decoration: underline;
-}
-    </style>
-  </head>
-  <body>
-    <!-- Primeiro quadro -->
-    <div class="quadro">
-      <img src="https://static2.mangalivre.net/firefox/XyAfCpEU-EcE65AueXCKNg/m8022769/1036/322960/340023/02.jpg" alt="Primeira imagem">
+      .price-box button {
+        max-width: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <img src="content://com.android.providers.media.documents/document/image%3A1000148150" alt="Sua Foto">
+    <h1>XTREINO LO$ DOLLAR$</h1>
+  </nav>
+
+  <div class="navbar-end"></div>
+
+  <div class="botao-container">
+    <!-- Substitua o número após "phone=" pelo número do WhatsApp do grupo 1 -->
+    <a href="https://chat.whatsapp.com/CSX8vRV11SR85usu2B9NMa" target="_blank">
+      <button onclick="animateButtonClick(this)">XTREINO MISTO</button>
+    </a>
+
+    <!-- Substitua o número após "phone=" pelo número do WhatsApp do grupo 2 -->
+    <a href="https://instagram.com/xtlosdollars?igshid=MzRlODBiNWFlZA==" target="_blank">
+      <button onclick="animateButtonClick(this)">ㅤINSTAGRAMㅤ</button>
+    </a>
+
+    <!-- Substitua o número após "phone=" pelo número do WhatsApp do grupo 3 -->
+    <a href="https://chat.whatsapp.com/F5m1lRKDMNUElzWqU0eyGj" target="_blank">
+      <button onclick="animateButtonClick(this)">DIVULGAÇÃOㅤ</button>
+    </a>
+
+    <!-- Substitua o número após "phone=" pelo número do WhatsApp do grupo 4 -->
+    <a href="https://wa.me/+5524999747137" target="_blank">
+      <button onclick="animateButtonClick(this)">ASSOCIADOSㅤ</button>
+    </a>
+  </div>
+
+  <div class="price-container">
+    <div class="price-box">
+      <div class="price-title">PLANO SEMANAL</div>
+      <div class="price-description">
+        - 1 SEMAN DE XTREINO <br>
+        - VAGA DIRETA
+      </div>
+      <div class="price-value">R$ 3,90/mês</div>
+      <!-- Link para o WhatsApp com a mensagem "Vim pelo site" -->
+      <a href="https://wa.me/+5524999747137" target="_blank">
+        <input type="submit" value="Contratar">
+      </a>
     </div>
 
-    <!-- Segundo quadro -->
-    <div class="quadro">
-      <img src="https://static2.mangalivre.net/firefox/-yh8FlaPgNUzssRA1f3Rfw/m8022770/1036/322960/340023/03.png" alt="Segunda imagem">
+    <div class="price-box">
+      <div class="price-title">PLANO MENSAL</div>
+      <div class="price-description">
+        - 1 MÊS DE XTREINO <br>
+        - VAGA DIRETA<br>
+      </div>
+      <div class="price-value">R$ 10,90/mês</div>
+      <!-- Link para o WhatsApp com a mensagem "Vim pelo site" -->
+      <a href="https://wa.me/+5524999747137" target="_blank">
+        <input type="submit" value="Contratar">
+      </a>
     </div>
-
-    <!-- Terceiro quadro -->
-    <div class="quadro">
-      <img src="https://static2.mangalivre.net/firefox/V77cJIvNIogcg_uAIBMAiA/m8022771/1036/322960/340023/04.png" alt="Terceira imagem">
+  </div>
+  <center >
+  <div class="price-box">
+      <div class="price-title">PLANO PREMIUM</div>
+      <div class="price-description">
+        - 2 MESES DE XTREINO <br>
+        - VAGA DIRETA<br>
+        - JOGAR COM TIMES DE ELITE<br>
+      </div>
+      <div class="price-value">R$ 19,90/mês</div>
+      <!-- Link para o WhatsApp com a mensagem "Vim pelo site" -->
+      <a href="https://wa.me/+5524999747137" target="_blank">
+        <input type="submit" value="Contratar">
+      </a>
     </div>
+  </div>
+  </center>
 
-    <!-- Quarto quadro -->
-    <div class="quadro">
-      <img src="https://static2.mangalivre.net/firefox/1L_fbQmFQyRrI_oegRNc8g/m8022772/1036/322960/340023/05.png" alt="Quarta imagem">
-    </div>
-
-     <!-- quinto quadro -->
-     <div class="quadro">
-        <img src="https://static2.mangalivre.net/firefox/-xbnij8kehaabf0L-y3LHg/m8022773/1036/322960/340023/06.png" alt="Primeira imagem">
-      </div>
-  
-      <!-- sexto quadro -->
-      <div class="quadro">
-        <img src="https://static2.mangalivre.net/firefox/4mDDSY0mI8GpfiyBerKluA/m8022774/1036/322960/340023/07.png" alt="Segunda imagem">
-      </div>
-  
-      <!-- setimo quadro -->
-      <div class="quadro">
-        <img src="https://static2.mangalivre.net/firefox/HwFTiRKkkooMinrcbR4oSA/m8022775/1036/322960/340023/08.png" alt="Terceira imagem">
-      </div>
-  
-      <!-- oitavo quadro -->
-      <div class="quadro">
-        <img src="https://static2.mangalivre.net/firefox/sSOD4OfOVQd33mWJ2yHCZA/m8022776/1036/322960/340023/09.png" alt="Quarta imagem">
-      </div>
-
-       <!-- nono quadro -->
-    <div class="quadro">
-        <img src="https://static2.mangalivre.net/firefox/jVTx-eMf4KykPdmC7dOuWw/m8022777/1036/322960/340023/10.png" alt="Segunda imagem">
-      </div>
-  
-      <!-- décimo quadro -->
-      <div class="quadro">
-        <img src="https://static2.mangalivre.net/firefox/G1NzxBwo4a6MeKN_drhOVw/m8022778/1036/322960/340023/11.png" alt="Terceira imagem">
-      </div>
-  
-      <!-- 11 quadro -->
-      <div class="quadro">
-        <img src="https://static2.mangalivre.net/firefox/_4cqFVDJ3JwizEPSByGNfA/m8022779/1036/322960/340023/12.png" alt="Quarta imagem">
-      </div>
-  
-       <!-- 12 quadro -->
-       <div class="quadro">
-          <img src="https://static2.mangalivre.net/firefox/ZKualpgswLqXeej3B722tA/m8022780/1036/322960/340023/13.png" alt="Primeira imagem">
-        </div>
-    
-        <!-- 13 quadro -->
-        <div class="quadro">
-          <img src="https://static2.mangalivre.net/firefox/paE6EBFC_4SKo4GdphzMqw/m8022781/1036/322960/340023/14.png" alt="Segunda imagem">
-        </div>
-    
-        <!-- 14 quadro -->
-        <div class="quadro">
-          <img src="https://static2.mangalivre.net/firefox/Uz6IKhn1ce9F6xvWDCsltA/m8022782/1036/322960/340023/15.png" alt="Terceira imagem">
-        </div>
-
-        <!-- 15 quadro -->
-        <div class="quadro">
-            <img src="https://static2.mangalivre.net/firefox/PMjwBbgusCLC5rjqp3sGMg/m8022783/1036/322960/340023/16.png" alt="Terceira imagem">
-          </div>
-          <footer>
-            <div class="container">
-              <p>Desenvolvido por <a href="#">Claudio Vinicius, Maria Clara <br> e Samuel Tavares</a></p>
-             
-            </div>
-          </footer>
-  </body>
+</body>
+    </html></body>
 </html>
